@@ -29,11 +29,11 @@ jobs:
     - name: Run Tests
       run: uv run pytest
     - name: Run ruff
-    run: |
+      run: |
         source venv/bin/activate
         ruff check .
         ruff format .
     - name: Run tests
-    run: |
+      run: |
         source venv/bin/activate
         python manage.py test
