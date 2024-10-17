@@ -29,5 +29,5 @@ dev-dependencies = [
 
 [tool.pytest.ini_options]
 pythonpath = [
- ".", "blog", "project",
+ ".",# "blog", "project",
 ]
