@@ -31,3 +31,4 @@ dev-dependencies = [
 pythonpath = [
  ".",# "blog", "project",
 ]
+DJANGO_SETTINGS_MODULE = "backend.settings"
