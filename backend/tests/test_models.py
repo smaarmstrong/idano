@@ -5,19 +5,19 @@ from project.models import Project, Screenshot, TechStack
 class ProjectModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
-            title="CrateNFC",
-            description="Create musical NFC cards.",
+            title="Portfolio",
+            description="Create your own project/blog portfolio.",
             price="Free",
-            company="Lil Robo",
-            tech_stack="Swift, Python",
-            website="https://www.cratenfc.com",
+            company="Idano",
+            tech_stack="JavaScript, Python",
+            website="https://www.idano.xyz",
         )
 
     def test_project_creation_with_optional_fields(self):
-        self.assertEqual(self.project.title, "CrateNFC")
-        self.assertEqual(self.project.company, "Lil Robo")
-        self.assertEqual(self.project.tech_stack, "Swift, Python")
-        self.assertEqual(self.project.website, "https://www.cratenfc.com")
+        self.assertEqual(self.project.title, "Portfolio")
+        self.assertEqual(self.project.company, "Idano")
+        self.assertEqual(self.project.tech_stack, "JavaScript, Python")
+        self.assertEqual(self.project.website, "https://www.idano.xyz")
 
     def test_project_creation_without_optional_fields(self):
         project = Project.objects.create(
@@ -32,14 +32,14 @@ class ProjectModelTest(TestCase):
 class ScreenshotModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
-            title="CrateNFC", description="Create musical NFC cards."
+            title="Portfolio", description="Create your own project/blog portfolio."
         )
 
     def test_screenshot_creation(self):
         screenshot = Screenshot.objects.create(
             project=self.project, image="screenshots/test_screenshot.png"
         )
-        self.assertEqual(screenshot.project.title, "CrateNFC")
+        self.assertEqual(screenshot.project.title, "Portfolio")
         self.assertEqual(screenshot.image, "screenshots/test_screenshot.png")
 
     def test_multiple_screenshots(self):
@@ -58,25 +58,25 @@ class ScreenshotModelTest(TestCase):
 class TechStackModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
-            title="CrateNFC", description="Create musical NFC cards."
+            title="Portfolio", description="Create your own project/blog portfolio."
         )
 
     def test_tech_stack_creation(self):
         tech_stack = TechStack.objects.create(
-            project=self.project, name="Swift", logo="tech_stack/swift_logo.png"
+            project=self.project, name="JavaScript", logo="tech_stack/javascript_logo.png"
         )
-        self.assertEqual(tech_stack.project.title, "CrateNFC")
-        self.assertEqual(tech_stack.name, "Swift")
-        self.assertEqual(tech_stack.logo, "tech_stack/swift_logo.png")
+        self.assertEqual(tech_stack.project.title, "Portfolio")
+        self.assertEqual(tech_stack.name, "JavaScript")
+        self.assertEqual(tech_stack.logo, "tech_stack/javascript_logo.png")
 
     def test_multiple_tech_stack_entries(self):
         tech_stack1 = TechStack.objects.create(
-            project=self.project, name="Swift", logo="tech_stack/swift_logo.png"
+            project=self.project, name="JavaScript", logo="tech_stack/javascript_logo.png"
         )
         tech_stack2 = TechStack.objects.create(
             project=self.project, name="Python", logo="tech_stack/python_logo.png"
         )
         tech_stacks = self.project.techstack_set.all()
         self.assertEqual(tech_stacks.count(), 2)
-        self.assertEqual(tech_stacks[0].name, "Swift")
+        self.assertEqual(tech_stacks[0].name, "JavaScript")
         self.assertEqual(tech_stacks[1].name, "Python")
