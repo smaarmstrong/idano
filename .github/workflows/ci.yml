@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: uv sync --locked
     - name: Collect static files
-      run: uv run python manage.py collectstatic
+      run: uv run python backend/manage.py collectstatic
     - name: Run Tests
       run: uv run pytest
     - name: Run ruff
@@ -33,7 +33,3 @@ jobs:
         source venv/bin/activate
         ruff check .
         ruff format .
-    - name: Run tests
-      run: |
-        source venv/bin/activate
-        python manage.py test
