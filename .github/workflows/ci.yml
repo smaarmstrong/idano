@@ -29,8 +29,7 @@ jobs:
     - name: Collect static files
       run: uv run python backend/manage.py collectstatic --noinput
     - name: Run Tests
-    #run: uv run pytest
-      run: pytest -v backend/tests
+      run: uv run pytest
     - name: Run ruff
       run: |
         source .venv/bin/activate
