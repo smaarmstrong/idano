@@ -9,7 +9,7 @@ class ProjectModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
             title="Portfolio",
-            description="Create your own project/blog portfolio.",
+            description="Create your own project/blog idano.",
             price="Free",
             company="Idano",
             tech_stack="JavaScript, Python",
@@ -35,7 +35,7 @@ class ProjectModelTest(TestCase):
 class ScreenshotModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
-            title="Portfolio", description="Create your own project/blog portfolio."
+            title="Portfolio", description="Create your own project/blog idano."
         )
 
     def test_screenshot_creation(self):
@@ -61,7 +61,7 @@ class ScreenshotModelTest(TestCase):
 class TechStackModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(
-            title="Portfolio", description="Create your own project/blog portfolio."
+            title="Portfolio", description="Create your own project/blog idano."
         )
 
     def test_tech_stack_creation(self):

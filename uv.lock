@@ -61,6 +61,57 @@ wheels = [
 ]
 
 [[package]]
+name = "idano"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "asgiref" },
+    { name = "cfgv" },
+    { name = "distlib" },
+    { name = "django" },
+    { name = "filelock" },
+    { name = "identify" },
+    { name = "nodeenv" },
+    { name = "pillow" },
+    { name = "platformdirs" },
+    { name = "pre-commit" },
+    { name = "pyyaml" },
+    { name = "ruff" },
+    { name = "sqlparse" },
+    { name = "virtualenv" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "pytest-django" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "asgiref", specifier = ">=3.8.1" },
+    { name = "cfgv", specifier = ">=3.4.0" },
+    { name = "distlib", specifier = ">=0.3.9" },
+    { name = "django", specifier = ">=5.1.2" },
+    { name = "filelock", specifier = ">=3.16.1" },
+    { name = "identify", specifier = ">=2.6.1" },
+    { name = "nodeenv", specifier = ">=1.9.1" },
+    { name = "pillow", specifier = ">=11.0.0" },
+    { name = "platformdirs", specifier = ">=4.3.6" },
+    { name = "pre-commit", specifier = ">=4.0.1" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "ruff", specifier = ">=0.6.9" },
+    { name = "sqlparse", specifier = ">=0.5.1" },
+    { name = "virtualenv", specifier = ">=20.26.6" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=8.3.3" },
+    { name = "pytest-django", specifier = ">=4.9.0" },
+]
+
+[[package]]
 name = "identify"
 version = "2.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -150,57 +201,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/96/2d/02d4312c973c6050a18b314a5ad0b3210edb65a906f868e31c111dede4a6/pluggy-1.5.0.tar.gz", hash = "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1", size = 67955 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl", hash = "sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669", size = 20556 },
-]
-
-[[package]]
-name = "portfolio"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "asgiref" },
-    { name = "cfgv" },
-    { name = "distlib" },
-    { name = "django" },
-    { name = "filelock" },
-    { name = "identify" },
-    { name = "nodeenv" },
-    { name = "pillow" },
-    { name = "platformdirs" },
-    { name = "pre-commit" },
-    { name = "pyyaml" },
-    { name = "ruff" },
-    { name = "sqlparse" },
-    { name = "virtualenv" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest" },
-    { name = "pytest-django" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "asgiref", specifier = ">=3.8.1" },
-    { name = "cfgv", specifier = ">=3.4.0" },
-    { name = "distlib", specifier = ">=0.3.9" },
-    { name = "django", specifier = ">=5.1.2" },
-    { name = "filelock", specifier = ">=3.16.1" },
-    { name = "identify", specifier = ">=2.6.1" },
-    { name = "nodeenv", specifier = ">=1.9.1" },
-    { name = "pillow", specifier = ">=11.0.0" },
-    { name = "platformdirs", specifier = ">=4.3.6" },
-    { name = "pre-commit", specifier = ">=4.0.1" },
-    { name = "pyyaml", specifier = ">=6.0.2" },
-    { name = "ruff", specifier = ">=0.6.9" },
-    { name = "sqlparse", specifier = ">=0.5.1" },
-    { name = "virtualenv", specifier = ">=20.26.6" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pytest", specifier = ">=8.3.3" },
-    { name = "pytest-django", specifier = ">=4.9.0" },
 ]
 
 [[package]]
