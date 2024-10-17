@@ -18,4 +18,7 @@ run:
 
 # Run pytest with verbose output and pipe to less for easier reading
 test:
+	pytest -v backend/tests/
+
+test less:
 	pytest -v backend/tests/ | less
