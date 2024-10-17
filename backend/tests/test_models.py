@@ -43,10 +43,10 @@ class ScreenshotModelTest(TestCase):
         self.assertEqual(screenshot.image, "screenshots/test_screenshot.png")
 
     def test_multiple_screenshots(self):
-        screenshot1 = Screenshot.objects.create(
+        Screenshot.objects.create(
             project=self.project, image="screenshots/test_screenshot1.png"
         )
-        screenshot2 = Screenshot.objects.create(
+        Screenshot.objects.create(
             project=self.project, image="screenshots/test_screenshot2.png"
         )
         screenshots = self.project.screenshot_set.all()
@@ -63,17 +63,21 @@ class TechStackModelTest(TestCase):
 
     def test_tech_stack_creation(self):
         tech_stack = TechStack.objects.create(
-            project=self.project, name="JavaScript", logo="tech_stack/javascript_logo.png"
+            project=self.project,
+            name="JavaScript",
+            logo="tech_stack/javascript_logo.png",
         )
         self.assertEqual(tech_stack.project.title, "Portfolio")
         self.assertEqual(tech_stack.name, "JavaScript")
         self.assertEqual(tech_stack.logo, "tech_stack/javascript_logo.png")
 
     def test_multiple_tech_stack_entries(self):
-        tech_stack1 = TechStack.objects.create(
-            project=self.project, name="JavaScript", logo="tech_stack/javascript_logo.png"
+        TechStack.objects.create(
+            project=self.project,
+            name="JavaScript",
+            logo="tech_stack/javascript_logo.png",
         )
-        tech_stack2 = TechStack.objects.create(
+        TechStack.objects.create(
             project=self.project, name="Python", logo="tech_stack/python_logo.png"
         )
         tech_stacks = self.project.techstack_set.all()
