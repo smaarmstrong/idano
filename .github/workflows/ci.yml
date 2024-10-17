@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: uv sync --locked
     - name: Collect static files
-      run: uv run python backend/manage.py collectstatic
+      run: uv run python backend/manage.py collectstatic --noinput
     - name: Run Tests
       run: uv run pytest
     - name: Run ruff
