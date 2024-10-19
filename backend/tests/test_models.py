@@ -10,7 +10,6 @@ class ProjectModelTest(TestCase):
         self.project = Project.objects.create(
             title="Portfolio",
             description="Create your own project/blog idano.",
-            price="Free",
             company="Idano",
             tech_stack="JavaScript, Python",
             website="https://www.idano.xyz",
