@@ -16,8 +16,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("blog/", include("blog.urls")),  # Include the blog app's URLs
+    path("project/", include("project.urls")),  # Include the project app's URLs
 ]
