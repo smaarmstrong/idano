@@ -16,9 +16,8 @@ prune:
 run:
 	docker compose up -w; docker compose rm -f -v
 
-# Run pytest with verbose output and pipe to less for easier reading
 test:
 	pytest -v backend/tests/
 
-test less:
+testless:
 	pytest -v backend/tests/ | less
