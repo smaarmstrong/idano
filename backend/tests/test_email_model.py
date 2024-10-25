@@ -3,6 +3,7 @@ from emailmessage.models import EmailMessage
 from datetime import datetime
 from django.core.exceptions import ValidationError
 
+
 class EmailMessageModelTest(TestCase):
     def setUp(self):
         # Create a test email message
@@ -36,7 +37,7 @@ class EmailMessageModelTest(TestCase):
         """Test the string representation of the email message"""
         self.assertEqual(
             str(self.email_message),
-            "Email from Sean Armstrong (sean@example.com) - Inquiry about the portfolio"
+            "Email from Sean Armstrong (sean@example.com) - Inquiry about the portfolio",
         )
 
     def test_invalid_email_format(self):
