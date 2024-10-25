@@ -4,6 +4,7 @@ from django.urls import reverse
 from emailmessage.models import EmailMessage
 from django.contrib.auth.models import User
 
+
 class EmailMessageControllerTest(TestCase):
     def setUp(self):
         self.client = APIClient()
@@ -57,11 +58,13 @@ class EmailMessageControllerTest(TestCase):
             name="John Doe",
             email="john@example.com",
             subject="Hello",
-            message="This is a test message."
+            message="This is a test message.",
         )
         response = self.client.get(reverse("email_detail", args=[email_message.id]))
         self.assertEqual(response.status_code, 200)  # OK status
-        self.assertContains(response, "Hello")  # Check if the subject is in the response
+        self.assertContains(
+            response, "Hello"
+        )  # Check if the subject is in the response
 
     def test_delete_email_message(self):
         email_message = EmailMessage.objects.create(
@@ -70,6 +73,8 @@ class EmailMessageControllerTest(TestCase):
             subject="Test Subject",
             message="This is a test message.",
         )
-        response = self.client.delete(reverse("delete_email_message", args=[email_message.id]))
+        response = self.client.delete(
+            reverse("delete_email_message", args=[email_message.id])
+        )
         self.assertEqual(response.status_code, 204)  # No Content status
         self.assertFalse(EmailMessage.objects.filter(id=email_message.id).exists())

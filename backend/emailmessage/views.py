@@ -24,7 +24,8 @@ def create_email_message(request):
     # Check for missing required fields
     if not subject or not message:
         return Response(
-            {"error": "Subject and message are required."}, status=status.HTTP_400_BAD_REQUEST
+            {"error": "Subject and message are required."},
+            status=status.HTTP_400_BAD_REQUEST,
         )
 
     try:
