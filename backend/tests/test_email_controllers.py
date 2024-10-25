@@ -37,7 +37,8 @@ class EmailMessageControllerTest(TestCase):
             },
         )
         self.assertEqual(response.status_code, 400)  # Bad request status
-        self.assertIn("error", response.data)
+        self.assertIn("email", response.data)  # Check for the specific field
+        self.assertEqual(response.data["email"][0].code, "invalid")  # Check the error code
 
     def test_create_email_message_missing_fields(self):
         response = self.client.post(
@@ -45,13 +46,15 @@ class EmailMessageControllerTest(TestCase):
             {
                 "name": "Jane Doe",
                 "email": "jane@example.com",
-                # Provide default values for subject and message
-                "subject": "",  # or some default value
-                "message": "",  # or some default value
+                "subject": "",  # Missing subject
+                "message": "",  # Missing message
             },
         )
         self.assertEqual(response.status_code, 400)  # Bad request status
-        self.assertIn("error", response.data)
+        self.assertIn("subject", response.data)  # Check for the specific field
+        self.assertIn("message", response.data)  # Check for the specific field
+        self.assertEqual(response.data["subject"][0].code, "blank")  # Check the error code
+        self.assertEqual(response.data["message"][0].code, "blank")  # Check the error code
 
     def test_read_email_message(self):
         email_message = EmailMessage.objects.create(
