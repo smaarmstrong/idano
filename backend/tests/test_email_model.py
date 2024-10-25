@@ -1,6 +1,7 @@
 from django.test import TestCase
-from contact.models import EmailMessage
+from emailmessage.models import EmailMessage
 from datetime import datetime
+from django.core.exceptions import ValidationError
 
 class EmailMessageModelTest(TestCase):
     def setUp(self):
@@ -40,10 +41,11 @@ class EmailMessageModelTest(TestCase):
 
     def test_invalid_email_format(self):
         """Test that invalid email format raises an error"""
-        with self.assertRaises(ValueError):
-            EmailMessage.objects.create(
-                name="Jane Doe",
-                email="invalid-email",
-                subject="Invalid email test",
-                message="This email should raise an error due to invalid format.",
-            )
+        email_message = EmailMessage(
+            name="Jane Doe",
+            email="invalid-email",
+            subject="Invalid email test",
+            message="This email should raise an error due to invalid format.",
+        )
+        with self.assertRaises(ValidationError):
+            email_message.full_clean()  # This will validate the fields before saving
