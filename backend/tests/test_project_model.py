@@ -1,6 +1,7 @@
 from django.test import TestCase
 from project.models import Project, Screenshot, TechStack
 
+
 class ProjectModelTest(TestCase):
     def setUp(self):
         self.project = Project.objects.create(

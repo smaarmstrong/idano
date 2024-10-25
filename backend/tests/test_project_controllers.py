@@ -4,6 +4,7 @@ from django.urls import reverse
 from project.models import Project
 from django.contrib.auth.models import User
 
+
 class ProjectControllerTest(TestCase):
     def setUp(self):
         self.client = APIClient()
