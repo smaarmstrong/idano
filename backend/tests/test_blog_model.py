@@ -3,6 +3,7 @@ from blog.models import BlogPost
 from django.contrib.auth.models import User
 from datetime import date
 
+
 class BlogPostModelTest(TestCase):
     def setUp(self):
         # Create a test user (author)

@@ -4,9 +4,9 @@ from .views import BlogPostViewSet
 
 # Create a router and register the BlogPostViewSet with it
 router = DefaultRouter()
-router.register(r'blogposts', BlogPostViewSet)
+router.register(r"blogposts", BlogPostViewSet)
 
 urlpatterns = [
     # The router automatically handles the create, read, update, and delete actions
-    path('', include(router.urls)),  # This will handle the API endpoints
+    path("", include(router.urls)),  # This will handle the API endpoints
 ]
