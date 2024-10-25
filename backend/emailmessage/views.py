@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import EmailMessage
 from .serializer import EmailMessageSerializer
-from django.core.exceptions import ValidationError
 import re
 
 # Create your views here.
@@ -12,7 +11,7 @@ import re
 @api_view(["POST"])
 def create_email_message(request):
     serializer = EmailMessageSerializer(data=request.data)
-    
+
     if serializer.is_valid():
         email_message = serializer.save()
         return Response(
