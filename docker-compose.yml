@@ -1,0 +1,33 @@
+x-logging: &logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  backend:
+    container_name: backend
+    build: .
+    volumes:
+      - .:/backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=backend.settings
+      - DATABASE_URL=postgres://user:password@db:5432/dbname
+    # command: uv run backend/manage.py runserver 0.0.0.0:8000
+    command: backend/manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres_container
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
