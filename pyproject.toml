@@ -16,6 +16,7 @@ dependencies = [
     "pillow>=11.0.0",
     "platformdirs>=4.3.6",
     "pre-commit>=4.0.1",
+    "psycopg2-binary>=2.9.10",
     "pyyaml>=6.0.2",
     "ruff>=0.6.9",
     "sqlparse>=0.5.1",
